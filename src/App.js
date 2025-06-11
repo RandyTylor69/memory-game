@@ -1,6 +1,7 @@
 import './App.css';
 import './App.scss'
 import Form from "./components/Form"
+import MemoryCard from './components/MemoryCard';
 import React from 'react';
 
 function App() {
@@ -12,11 +13,20 @@ function App() {
     setIsGameOn(true)
   }
 
+  // in-game settings
+  function turnCard() {
+    console.log("Memory card clicked")
+  }
+
   // interacting with cards
   return (
     <main>
       <h1>The Memory Game of All Time</h1>
-      <Form />
+      {/* {!isGameOn && <Form startGame = {startGame} />}
+      {isGameOn && <MemoryCard turnCard = {turnCard} />} */}
+
+      <MemoryCard turnCard = {turnCard} />
+
     </main>
   );
 }
