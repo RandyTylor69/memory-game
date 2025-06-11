@@ -1,24 +1,23 @@
-import logo from './logo.svg';
 import './App.css';
+import './App.scss'
+import Form from "./components/Form"
+import React from 'react';
 
 function App() {
+
+  // pre-game settings
+  const [isGameOn, setIsGameOn] = React.useState(false)
+  function startGame(e){
+    e.preventDefault();
+    setIsGameOn(true)
+  }
+
+  // interacting with cards
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main>
+      <h1>The Memory Game of All Time</h1>
+      <Form />
+    </main>
   );
 }
 
