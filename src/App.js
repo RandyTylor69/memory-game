@@ -12,6 +12,7 @@ function App() {
   const [selectedCards, setSelectedCards] = React.useState([]);
   const [matchedCards, setMatchedCards] = React.useState([]);
   const [isGameOver, setIsGameOver] = React.useState(false)
+  const [emojiCategory, setEmojiCategory] = React.useState("animals-and-nature")
 
   function getRandomeIndices(data) {
     const randomIndicesArray = [];
@@ -53,7 +54,7 @@ function App() {
     // 1. try block
     try {
       let response = await fetch(
-        "https://emojihub.yurace.pro/api/all/category/animals-and-nature"
+        `https://emojihub.yurace.pro/api/all/category/${emojiCategory}`
       );
 
       if (!response.ok) {
@@ -116,9 +117,7 @@ function App() {
   // -------------------------------------
 
   function handleFormChange(e){
-    const name = e.target.name
-    const value = e.target.value
-    console.log(name, value)
+    setEmojiCategory(e.target.value)
   }
 
   return (
