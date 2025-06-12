@@ -1,13 +1,27 @@
+import EmojiButton from "./EmojiButton";
 import { decodeEntity } from "html-entities";
 
 export default function MemoryCard(props) {
   
-  const emojiEl = props.emojiData.map((emoji, index) => (
+  const cardEl = props.emojiData.map((emoji, index) => { 
+
+    const selectedCardEntry = props.selectedCards.find(emoji => 
+      emoji.index === index
+    )
+    const matchedCardEntry = props.matchedCards.find(emoji => 
+      emoji.index === index)
+    
+    return (
     <div className="card-item" key={index}>
-      <button className="card-btn" onClick={props.turnCard}>
-        {decodeEntity(emoji.htmlCode[0])}
-      </button>
+      <EmojiButton 
+        emoji = {emoji} 
+        handleClick = {()=>props.turnCard(emoji.name, index)}
+        content = {decodeEntity(emoji.htmlCode[0])}
+        selectedCardEntry = {selectedCardEntry}
+        matchedCardEntry = {matchedCardEntry}
+      />
     </div>
-  ));
-  return <div className="card-container">{emojiEl}</div>;
+  )});
+
+  return <div className="card-container">{cardEl}</div>;
 }

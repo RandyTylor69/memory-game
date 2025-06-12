@@ -17,6 +17,12 @@ main{
     margin-top: 5rem;
     font-family: "PT Serif", serif;
     color: #d39d9d;
+    text-align: center;
+
+    .win-msg{
+        margin-top: 2rem;
+        justify-self: center;
+    }
 }
 
 form{
@@ -62,6 +68,7 @@ form{
             scale: 1.1;
         }
         font-size: 2rem;
+        color: #988a8a;
     }
 
     
