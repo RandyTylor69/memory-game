@@ -110,10 +110,24 @@ function App() {
     }
   }, [matchedCards])
 
+  // -------------------------------------
+  // ----------- S T A R T I N G ---------
+  // ------------ M E N U ----------------
+  // -------------------------------------
+
+  function handleFormChange(e){
+    const name = e.target.name
+    const value = e.target.value
+    console.log(name, value)
+  }
+
   return (
     <main>
       <h1>The Memory Game of All Time</h1>
-      {!isGameOn && <Form startGame={startGame} />}
+      {!isGameOn && <Form 
+        startGame={startGame}
+        handleChange = {handleFormChange}
+       />}
       {isGameOn && <MemoryCard 
         turnCard={turnCard} 
         emojiData={emojiData} 
